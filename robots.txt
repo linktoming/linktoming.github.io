@@ -1,0 +1,4 @@
+User-agent: *
+Disallow: 
+
+Sitemap: http://linktoming.github.io/sitemap.xml 
