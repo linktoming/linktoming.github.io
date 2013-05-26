@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
 
-  <title><![CDATA[M2's Blog on Github]]></title>
+  <title><![CDATA[M2's Blog]]></title>
   <link href="http://linktoming.github.io/atom.xml" rel="self"/>
   <link href="http://linktoming.github.io/"/>
-  <updated>2013-05-26T09:57:11+08:00</updated>
+  <updated>2013-05-26T11:24:25+08:00</updated>
   <id>http://linktoming.github.io/</id>
   <author>
     <name><![CDATA[Mingming]]></name>
@@ -12,6 +12,46 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[Tutorials on Setting up an Octopress Blog on Github]]></title>
+    <link href="http://linktoming.github.io/blog/2013/05/26/tutorials-on-setting-up-an-octopress-blog-on-github/"/>
+    <updated>2013-05-26T10:03:00+08:00</updated>
+    <id>http://linktoming.github.io/blog/2013/05/26/tutorials-on-setting-up-an-octopress-blog-on-github</id>
+    <content type="html"><![CDATA[<p>I&rsquo;ve been thinking to host a tech note blog using <a href="http://octopress.org/">Octopress</a> on github for a while. It&rsquo;s free, tech oriented and simple for hackers.</p>
+
+<p>However, I found out that only reading the <a href="http://octopress.org/docs/setup/">official start here guide</a> was not enough to get my blog up and running. I did&rsquo;t know how to update my new post or new settings to github.</p>
+
+<p>After searched around, these were the additional articles that helped me to make this post possible.</p>
+
+<ul>
+<li><a href="http://code.dblock.org/octopress-setting-up-a-blog-and-contributing-to-an-existing-one">Octopress: Setting up a Blog and Contributing to an Existing One</a></li>
+<li><a href="http://www.tomordonez.com/blog/2012/06/04/creating-a-github-blog-using-octopress/">Creating a Github Blog Using Octopress</a></li>
+</ul>
+
+
+<p>To summarize,we have two branches in github repository:</p>
+
+<ul>
+<li>master: used for the generated web content from which github will read for our github pages.</li>
+<li>source: the source code of Octopress and the posts we&rsquo;ve written.</li>
+</ul>
+
+
+<p>In our local machine, the root folder of Octopress is a git repository with only the source branch. It&rsquo;s the one we used for the origin/source. There is a _deploy folder in the root folder which is also a git repository with only the master branch. It&rsquo;s the generated web content for deployment or push to the origin/master.</p>
+
+<p>The process for adding a new post and push to github:</p>
+
+<pre><code>$ rake new_post["New Post"]
+$ rake generate
+$ rake preview
+$ git add .
+$ git commit -am "Some comment here." 
+$ git push origin source
+$ rake deploy
+</code></pre>
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[Hello World]]></title>

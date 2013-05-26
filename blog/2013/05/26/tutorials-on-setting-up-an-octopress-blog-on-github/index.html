@@ -5,12 +5,11 @@
 <!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
 <head>
   <meta charset="utf-8">
-  <title>Hello World - M2's Blog</title>
+  <title>Tutorials on Setting up an Octopress Blog on Github - M2's Blog</title>
   <meta name="author" content="Mingming">
 
   
-  <meta name="description" content="Hello World!
-">
+  <meta name="description" content="I&rsquo;ve been thinking to host a tech note blog using Octopress on github for a while. It&rsquo;s free, tech oriented and simple for hackers. &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -19,7 +18,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
   
-  <link rel="canonical" href="http://linktoming.github.io/blog/2013/05/26/hello-world">
+  <link rel="canonical" href="http://linktoming.github.io/blog/2013/05/26/tutorials-on-setting-up-an-octopress-blog-on-github">
   <link href="/favicon.png" rel="icon">
   <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
   <link href="/atom.xml" rel="alternate" title="M2's Blog" type="application/atom+xml">
@@ -69,7 +68,7 @@
   
   <header>
     
-      <h1 class="entry-title">Hello World</h1>
+      <h1 class="entry-title">Tutorials on Setting Up an Octopress Blog on Github</h1>
     
     
       <p class="meta">
@@ -85,14 +84,45 @@
   
 
 
-<time datetime="2013-05-26T09:54:00+08:00" pubdate data-updated="true">May 26<span>th</span>, 2013</time>
+<time datetime="2013-05-26T10:03:00+08:00" pubdate data-updated="true">May 26<span>th</span>, 2013</time>
         
       </p>
     
   </header>
 
 
-<div class="entry-content"><p>Hello World!</p>
+<div class="entry-content"><p>I&rsquo;ve been thinking to host a tech note blog using <a href="http://octopress.org/">Octopress</a> on github for a while. It&rsquo;s free, tech oriented and simple for hackers.</p>
+
+<p>However, I found out that only reading the <a href="http://octopress.org/docs/setup/">official start here guide</a> was not enough to get my blog up and running. I did&rsquo;t know how to update my new post or new settings to github.</p>
+
+<p>After searched around, these were the additional articles that helped me to make this post possible.</p>
+
+<ul>
+<li><a href="http://code.dblock.org/octopress-setting-up-a-blog-and-contributing-to-an-existing-one">Octopress: Setting up a Blog and Contributing to an Existing One</a></li>
+<li><a href="http://www.tomordonez.com/blog/2012/06/04/creating-a-github-blog-using-octopress/">Creating a Github Blog Using Octopress</a></li>
+</ul>
+
+
+<p>To summarize,we have two branches in github repository:</p>
+
+<ul>
+<li>master: used for the generated web content from which github will read for our github pages.</li>
+<li>source: the source code of Octopress and the posts we&rsquo;ve written.</li>
+</ul>
+
+
+<p>In our local machine, the root folder of Octopress is a git repository with only the source branch. It&rsquo;s the one we used for the origin/source. There is a _deploy folder in the root folder which is also a git repository with only the master branch. It&rsquo;s the generated web content for deployment or push to the origin/master.</p>
+
+<p>The process for adding a new post and push to github:</p>
+
+<pre><code>$ rake new_post["New Post"]
+$ rake generate
+$ rake preview
+$ git add .
+$ git commit -am "Some comment here." 
+$ git push origin source
+$ rake deploy
+</code></pre>
 </div>
 
 
@@ -115,7 +145,7 @@
   
 
 
-<time datetime="2013-05-26T09:54:00+08:00" pubdate data-updated="true">May 26<span>th</span>, 2013</time>
+<time datetime="2013-05-26T10:03:00+08:00" pubdate data-updated="true">May 26<span>th</span>, 2013</time>
       
 
 
@@ -123,7 +153,7 @@
     
       <div class="sharing">
   
-  <a href="http://twitter.com/share" class="twitter-share-button" data-url="http://linktoming.github.io/blog/2013/05/26/hello-world/" data-via="" data-counturl="http://linktoming.github.io/blog/2013/05/26/hello-world/" >Tweet</a>
+  <a href="http://twitter.com/share" class="twitter-share-button" data-url="http://linktoming.github.io/blog/2013/05/26/tutorials-on-setting-up-an-octopress-blog-on-github/" data-via="" data-counturl="http://linktoming.github.io/blog/2013/05/26/tutorials-on-setting-up-an-octopress-blog-on-github/" >Tweet</a>
   
   
   
@@ -132,8 +162,8 @@
     
     <p class="meta">
       
+        <a class="basic-alignment left" href="/blog/2013/05/26/hello-world/" title="Previous Post: Hello World">&laquo; Hello World</a>
       
-        <a class="basic-alignment right" href="/blog/2013/05/26/tutorials-on-setting-up-an-octopress-blog-on-github/" title="Next Post: Tutorials on Setting up an Octopress Blog on Github">Tutorials on Setting up an Octopress Blog on Github &raquo;</a>
       
     </p>
   </footer>
